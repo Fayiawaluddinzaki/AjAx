@@ -29,7 +29,7 @@ class Detailbarang extends Migration
                 'constraint'=>11,
             ],
             'keterangan'=>[
-                'type'=>'VARCHAR',
+                'type'=>'TEXT',
                 'constraint'=>200,
             ],
             // 'create_date'=>[

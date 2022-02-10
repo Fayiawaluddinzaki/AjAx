@@ -24,12 +24,12 @@ class Detailkegiatan extends Migration
                 'type'=>'TIME',
             ],
             'uraian_kegiatan'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>200,
+                'type'=>'TEXT',
+                // 'constraint'=>200,
             ],
             'keterangan'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>200,
+                'type'=>'TEXT',
+                // 'constraint'=>200,
             ],
             // 'create_date'=>[
             //     'type'=>'DATETIME',
