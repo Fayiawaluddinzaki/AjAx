@@ -14,7 +14,7 @@ class MasterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username_id','kode_entry','jam_masuk','jam_pulang','barcode'];
+    protected $allowedFields    = ['username_id','kode_entry','jam_masuk','jam_pulang','barcode','created_time','created_date'];
 
     // Dates
     protected $useTimestamps = false;
