@@ -32,14 +32,23 @@ class Detailbarang extends Migration
                 'type'=>'VARCHAR',
                 'constraint'=>200,
             ],
+            // 'create_date'=>[
+            //     'type'=>'DATE',
+            //     'null'=>true,
+            // ],
+            // 'create_time'=>[
+            //     'type'=>'TIME',
+            //     'null'=>true,
+            // ],
+            'created_time time default current_timestamp',
+            'created_date date default current_timestamp',
         ]);
         $this->forge->addKey('det_barang_id',true);
-        // $this->forge->addForeignKey('master_barang_id','master_barang','master_barang_id');
         $this->forge->createTable('detail_nama_barang');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('detail_nama_barang');
     }
 }

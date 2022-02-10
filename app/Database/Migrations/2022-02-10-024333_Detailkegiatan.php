@@ -31,14 +31,25 @@ class Detailkegiatan extends Migration
                 'type'=>'VARCHAR',
                 'constraint'=>200,
             ],
+            // 'create_date'=>[
+            //     'type'=>'DATETIME',
+            //     'null'=>true,
+                
+            // ],
+            // 'create_time'=>[
+            //     'type'=>'TIME',
+            //     'null'=>true,
+                
+            // ],
+            'created_time time default current_timestamp',
+            'created_date date default current_timestamp',
         ]);
         $this->forge->addKey('det_kegiatan_id',true);
-        // $this->forge->addForeignKey('master_kegiatan_id','master_kegiatan','master_kegiatan_id');
         $this->forge->createTable('detail_uraian_kegiatan');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('detail_uraian_kegiatan');
     }
 }
