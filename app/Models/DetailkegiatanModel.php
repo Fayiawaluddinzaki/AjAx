@@ -14,7 +14,7 @@ class DetailkegiatanModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['master_kegiatan_id','create_time','uraian_kegiatan','keterangan_tambahan'];
+    protected $allowedFields    = ['master_kegiatan_id','create_time','uraian_kegiatan','keterangan_tambahan','created_time','created_date'];
 
     // Dates
     protected $useTimestamps = false;

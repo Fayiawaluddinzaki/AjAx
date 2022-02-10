@@ -14,7 +14,7 @@ class DetailbarangModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['master_barang_id', 'nama_barang', 'jumlah','keterangan','create_date'];
+    protected $allowedFields    = ['master_barang_id', 'nama_barang', 'jumlah','keterangan','created_time','created_date'];
 
     // Dates
     protected $useTimestamps = false;
