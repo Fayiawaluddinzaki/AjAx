@@ -14,7 +14,7 @@ class AcaraModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['barcode','uraian','keterangan','nama_barang','jumlah_barang','ket_barang','created_time','created_date'];
+    protected $allowedFields    = ['master_id','uraian','keterangan','nama_barang','jumlah_barang','ket_barang'];
 
     // Dates
     protected $useTimestamps = false;

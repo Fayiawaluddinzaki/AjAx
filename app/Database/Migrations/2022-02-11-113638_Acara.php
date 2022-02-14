@@ -15,9 +15,10 @@ class Acara extends Migration
                 'unsigned'=>true,
                 'auto_increment'=>true,
             ],
-            'barcode'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>100,
+            'master_id'=>[
+                'type'=>'INT',
+                'constraint'=>11,
+                'unsigned'=>true,
             ],
             'uraian'=>[
                 'type'=>'VARCHAR',
@@ -42,12 +43,14 @@ class Acara extends Migration
             'created_time time default current_timestamp',
             'created_date date default current_timestamp',
         ]);
-        $this->forge->addKey('acara_id',true);
+        $this->forge->addKey('insert_id',true);
+        $this->forge->addForeignKey('master_id','master','master_id');
         $this->forge->createTable('acara');
     }
 
     public function down()
     {
+        $this->forge->dropForeignKey('acara','acara_master_id_foreign');
         $this->forge->dropTable('acara');
     }
 }

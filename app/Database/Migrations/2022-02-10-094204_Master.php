@@ -15,7 +15,7 @@ class Master extends Migration
                 'unsigned'=>true,
                 'auto_increment'=>true,
             ],
-            'username_id'=>[
+            'name_id'=>[
                 'type'=>'INT',
                 'constraint'=>11,
                 'unsigned'=>true,
@@ -38,11 +38,13 @@ class Master extends Migration
             'created_date date default current_timestamp',
         ]);
         $this->forge->addKey('master_id',true);
+        $this->forge->addForeignKey('name_id','users','id');
         $this->forge->createTable('master');
     }
 
     public function down()
     {
+        $this->forge->dropForeignKey('master','master_name_id_foreign');
         $this->forge->dropTable('master');
     }
 }
