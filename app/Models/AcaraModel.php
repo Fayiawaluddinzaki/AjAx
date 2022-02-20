@@ -14,17 +14,17 @@ class AcaraModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['master_id','uraian','keterangan','nama_barang','jumlah_barang','ket_barang'];
+    protected $allowedFields    = ['master_id', 'uraian_kegiatan', 'ket_kegiatan', 'nama_barang', 'jumlah_barang', 'ket_barang'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = ['uraian_kegiatan' => 'required', 'ket_kegiatan' => 'required', 'nama_barang' => 'required', 'jumlah_barang' => 'required', 'ket_barang' => 'required'];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
@@ -39,4 +39,9 @@ class AcaraModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getacara()
+    {
+        return $this->findAll();
+    }
 }

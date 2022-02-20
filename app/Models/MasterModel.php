@@ -14,10 +14,10 @@ class MasterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username_id','kode_entry','jam_masuk','jam_pulang','barcode','created_time','created_date'];
+    protected $allowedFields    = ['username','barcode'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

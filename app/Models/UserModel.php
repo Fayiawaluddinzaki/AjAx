@@ -14,7 +14,7 @@ class UserModel extends Model
 
     protected $allowedFields = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
-        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at','firstname', 'lastname', 'nopegawai','gambar'
+        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at','firstname', 'lastname', 'nopegawai',
     ];
 
     protected $useTimestamps = true;
@@ -119,10 +119,5 @@ class UserModel extends Model
         }
 
         return $data;
-    }
-
-    public function getusr()
-    {
-        return $this->findAll();
     }
 }

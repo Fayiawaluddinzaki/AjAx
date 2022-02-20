@@ -120,8 +120,11 @@
           <!-- tab 2 -->
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <!-- <form> -->
-            <form name="formvalid" id="ajaxform" method="POST" accept-charset="utf-8">
+            <form name="formvalid" id="ajaxform" method="POST" action="/simpandata" accept-charset="utf-8">
+              <!-- CSRF PROTECTION -->
               <?= csrf_field() ?>
+              <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+              <!-- CSRF PROTECTION -->
               <button type="button" class="btn btn-primary btn-xs my-2" onclick="addProduct();"><i
                   class="fas fa-plus"></i></button>
               <button type="button" class="btn btn-danger btn-xs" onclick="hapus();"><i
@@ -138,14 +141,14 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label>Jumlah</label>
-                      <input type="number" class="form-control" name="jumlah" required>
+                      <input type="number" class="form-control" name="jumlah_barang" required>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label>Keterangan</label>
-                <textarea class="form-control" name="keterangan" required></textarea>
+                <textarea class="form-control" name="ket_barang" required></textarea>
               </div>
               <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="reset" class="btn btn-danger">Reset</button>
@@ -154,7 +157,7 @@
               </div>
               <!-- tab 3 -->
               <!-- <form name="formvalid2" id="ajaxform2" method="POST" accept-charset="utf-8"> -->
-              <?= csrf_field(); ?>
+
               <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <button type="button" class="btn btn-primary btn-xs my-2" onclick="add();"><i
                     class="fas fa-plus"></i></button>
@@ -167,11 +170,11 @@
                   <div class="kegid">
                     <div class="form-group">
                       <label>Kegiatan</label>
-                      <textarea class="form-control" name="urian_kegiatan" required></textarea>
+                      <textarea class="form-control" name="uraian_kegiatan" required></textarea>
                     </div>
                     <div class="form-group">
                       <label>Keterangan</label>
-                      <textarea class="form-control" name="keterangan_tambahan" required></textarea>
+                      <textarea class="form-control" name="ket_kegiatan" required></textarea>
                     </div>
                   </div>
                 </div>
@@ -233,8 +236,9 @@
       e.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'ajxsave',
+        url: '/simpandata',
         data: $(this).serialize(),
+        // data: 'json',
         success: function (data) {
           if (data.status == 'success') {
             Swal.fire({
@@ -242,7 +246,6 @@
               title: 'Berhasil',
               text: 'Data berhasil disimpan',
               showConfirmButton: false,
-              timer: 1500
             });
           } else {
             Swal.fire({

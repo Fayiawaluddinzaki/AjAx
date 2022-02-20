@@ -31,6 +31,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// $routes->get('/', 'Home::index');
 $routes->get('/', 'View::index');
 // $routes->get('/detail', 'View::detail');
 $routes->get('/detail', 'View::det');
@@ -39,6 +40,7 @@ $routes->post('/simpan', 'Action::save');
 $routes->post('ajxsave', 'Action::ajxsave');
 $routes->post('save-ajx', 'Action::simpajx');
 $routes->post('save-ajx2', 'Action::simpanajx');
+$routes->post('/simpandata', 'save::acara');
 
 /*
  * --------------------------------------------------------------------

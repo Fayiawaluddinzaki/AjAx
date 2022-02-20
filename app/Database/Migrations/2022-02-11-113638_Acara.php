@@ -20,11 +20,11 @@ class Acara extends Migration
                 'constraint'=>11,
                 'unsigned'=>true,
             ],
-            'uraian'=>[
+            'uraian_kegiatan'=>[
                 'type'=>'VARCHAR',
                 'constraint'=>100,
             ],
-            'keterangan'=>[
+            'ket_kegiatan'=>[
                 'type'=>'TEXT',
                 'constraint'=>200,
             ],
